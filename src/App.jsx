@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import { getAllProducts } from "./services";
 import ProductPageTransition from "./components/ProductPageTransition";
-import ProductComponent from "./components/ProductComponent/Index";
-import ProductListComponent from "./components/ProductListComponent/Index";
+import ProductComponent from "./components/ProductComponent";
+import ProductListComponent from "./components/ProductListComponent";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -59,7 +59,7 @@ function App() {
   
     useEffect(() => {
       const fetchProducts = async () => {
-        const data = await getAllProducts({ page: 1, limit: 5 });
+        const data = await getAllProducts({ page: 1, limit: 10 });
         setProducts(data);
       };
   
@@ -75,9 +75,11 @@ function App() {
         <SearchAndFilterComponent />
         <ProductListComponent products={products} /> 
     */}
-      <ProductPageTransition pageData={pageData} onPageTransition={onPageTransition} />
-      <ProductComponent />
+
       <ProductListComponent products={products} />
+      <ProductPageTransition pageData={pageData} onPageTransition={onPageTransition} />
+      
+      
     </>
   );
 }

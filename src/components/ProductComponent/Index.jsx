@@ -1,4 +1,5 @@
 import React from "react";
+import './product.css'
 
 
 function ProductComponent({product}) {
@@ -6,14 +7,12 @@ function ProductComponent({product}) {
   console.log(product)
   return (
     <div className="product">
-      <img src="" alt="" />
-      <div>
-      <h1>Productname:{product.name}</h1>
-      <p>Price:{product.price}</p>
-      <p>Quantity:{product.quantity}</p>
-
-      </div>
       
+      <img src={product.thumbnail} alt="" />
+      
+      <h1>{product.title}</h1>
+      <p>Price:Ksh.{product.price} </p>
+      <p>Quantity:{product.stock}</p>
       
     </div>
   );
