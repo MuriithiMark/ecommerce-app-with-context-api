@@ -1,3 +1,18 @@
+:root {
+  --dark: black;
+  --light: white;
+}
+
+[data-theme=dark] {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+[data-theme=light] {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
 button, button:focus, button:focus-visible {
   outline: none;
   background: none;
