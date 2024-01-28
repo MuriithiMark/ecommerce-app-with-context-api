@@ -36,21 +36,20 @@ function App() {
   }
 
   useEffect(() => {
-    getAllProducts({ page: pageData.page, limit: 10 }).then((result) => {
+    getAllProducts({ skip: pageData.page - 1, limit: 10 }).then((result) => {
+      console.log(result)
       if (!result.success) {
         setMessage(() => result.message);
         setProducts([]);
         return;
       }
-      const {
-        data: { products, hasNextPage, hasPrevPage, page }, message
-      } = result;
+      const { products, total, skip, limit, message } = result;
       setMessage(()=> message);
       setProducts(() => products);
       setPageData(() => ({
-        hasNextPage,
-        hasPrevPage,
-        page,
+        hasNextPage: (total - (skip + limit)) !== 0,
+        hasPrevPage: skip !== 0,
+        page: (skip % limit + 1),
       }));
     });
   }, [pageData.page]);
