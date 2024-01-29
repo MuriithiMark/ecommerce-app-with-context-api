@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { getAllProducts } from "./services";
 import ProductPageTransition from "./components/ProductPageTransition";
+import HeaderComponent from "./components/HeaderComponent";
+import SearchFilterComponent from "./components/SearchFilterComponent";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -59,6 +61,8 @@ function App() {
         <SearchAndFilterComponent />
         <ProductListComponent products={products} /> 
     */}
+    <HeaderComponent/>
+    <SearchFilterComponent/>
       <ProductPageTransition pageData={pageData} onPageTransition={onPageTransition} />
     </>
   );
