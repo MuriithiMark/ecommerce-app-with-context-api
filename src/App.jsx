@@ -3,9 +3,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import { getAllProducts } from "./services";
-import ProductPageTransition from "./components/ProductPageTransition";
+import HeaderComponent from "./components/HeaderComponent";
+import SearchFilterComponent from "./components/SearchFilterComponent";
 import ProductComponent from "./components/ProductComponent";
 import ProductListComponent from "./components/ProductListComponent";
+import ProductPageTransition from "./components/ProductPageTransition";
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -70,12 +73,8 @@ function App() {
 
   return (
     <>
-      {/* 
-        <HeaderComponent darkMode={darkMode} onDarkModeChange={onDarkModeChange} />
-        <SearchAndFilterComponent />
-        <ProductListComponent products={products} /> 
-    */}
-
+      <HeaderComponent/>
+      <SearchFilterComponent/>
       <ProductListComponent products={products} />
       <ProductPageTransition pageData={pageData} onPageTransition={onPageTransition} />
       
