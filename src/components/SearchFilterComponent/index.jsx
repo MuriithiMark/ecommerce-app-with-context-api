@@ -1,23 +1,40 @@
 import React, { useState } from "react";
-import './index.css'
+import "./index.css";
 
-const SearchFilterComponent = ({ searchText, handleChange, handleKeyDown }) => {
-  return(
-  <div className="search-filter">
-    <input
-      type="text"
-      value={searchText}
-      placeholder="enter a product name..."
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-    />
+const SearchFilterComponent = ({  handleSearch }) => {
+  const [searchText, setSearchText] = useState("");
+  const [searchBy, setSearchBy] = useState("name");
 
-    <select name="" id="">
-      <option value="name"> Search by name</option>
-      <option value="categories">Search by category</option>
-    </select>
-  </div>
-  )
+  const handleChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleSelectChange = (event) => {
+    setSearchBy(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if(event.key === "Enter") {
+      handleSearch({ searchText, searchBy });
+    }
+  } 
+
+  return (
+    <div className="search-filter">
+      <input
+        type="text"
+        value={searchText}
+        placeholder="Search a product..."
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+
+      <select name="" id="" value={searchBy} onChange={handleSelectChange}>
+        <option value="name"> Search by name</option>
+        <option value="categories">Search by category</option>
+      </select>
+    </div>
+  );
 };
 
 export default SearchFilterComponent;

@@ -6,11 +6,21 @@
 [data-theme=dark] {
   background-color: var(--dark);
   color: var(--light);
+  --button-color: var(--light);
+  --font-color: var(--light);
 }
 
 [data-theme=light] {
   background-color: var(--light);
   color: var(--dark);
+  --button-color: var(--dark);
+  --font-color: var(--dark);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 button, button:focus, button:focus-visible {

@@ -1,6 +1,13 @@
-.header{
+.header {
     display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between  ;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* position: fixed; */
+    width: 96%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 10%;
+    background-color: rgba(36, 35, 35, 0.9);
+    color: white;
 }
