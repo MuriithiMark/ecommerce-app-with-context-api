@@ -18,19 +18,27 @@ function App() {
     page: 1,
   });
 
+  /**
+   *
+   * @param {{searchText: string, searchBy: string}} param0
+   */
   const handleSearch = async ({ searchText, searchBy }) => {
-    let url = '';
+    let url = "";
     if (searchBy === "name") {
-      url = `https://dummyjson.com/products/search?q=${searchText}`;
+      url = `https://dummyjson.com/products/search?q=${searchText.trim()}`;
     }
 
     if (searchBy === "categories") {
-      url = `https://dummyjson.com/products/category/${searchText.replace(" ", "-").toLowerCase()}`;
+      url = `https://dummyjson.com/products/category/${searchText
+        .trim()
+        .replace(" ", "-")
+        .toLowerCase()}`;
     }
 
     const response = await fetch(url);
     const data = await response.json();
-    setProducts(data.products)
+    setProducts(data.products);
+    // TODO handle moving from one page to prev or next if they are many products
   };
 
   const onPageTransition = (newPage) => {
