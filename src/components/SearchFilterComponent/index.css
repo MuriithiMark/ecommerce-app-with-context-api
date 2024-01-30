@@ -1,6 +1,26 @@
-.search-filter{
+.search-filter {
+    width: 96%;
+    margin: 2%;
     display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between  ;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+        width: 40%;
+        height: 40px;
+        padding: 10px;
+        font-size: larger;
+        background-color: white;
+        border: '1px solid black';
+        color: black;
+        border-radius: 10px;
+    }
+
+    select {
+        height: 40px;
+        width: 28%;
+        font-size: 1em;
+        border-radius: 8px;
+    }
 }
