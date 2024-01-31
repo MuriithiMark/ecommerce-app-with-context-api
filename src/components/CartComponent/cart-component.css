@@ -1,0 +1,26 @@
+.cart-component {
+    border: 1px solid black;
+    position: fixed;
+    right: 0;
+    top: 12%;
+    background-color: black;
+    color: white;
+    z-index: 10000;
+    height: 80%;
+    width: 40%;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    font-size: larger;
+    button {
+        color: white;
+        font-weight: 700;
+        font-size: larger;
+    }
+}

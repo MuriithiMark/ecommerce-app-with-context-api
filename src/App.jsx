@@ -2,11 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-import { getAllProducts } from "./services";
+import { getAllProducts } from "./services/api";
 import HeaderComponent from "./components/HeaderComponent";
 import SearchFilterComponent from "./components/SearchFilterComponent";
 import ProductListComponent from "./components/ProductListComponent";
 import ProductPageTransition from "./components/ProductPageTransition";
+import ProductsContextProvider from "./services/context/ProductsContext.provider";
+import CartContextProvider from "./services/context/CartContext.provider";
+import CartComponent from "./components/CartComponent";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -73,13 +76,19 @@ function App() {
 
   return (
     <>
-      <HeaderComponent />
-      <SearchFilterComponent handleSearch={handleSearch} />
-      <ProductListComponent products={products} />
-      <ProductPageTransition
-        pageData={pageData}
-        onPageTransition={onPageTransition}
-      />
+      <CartContextProvider>
+        <HeaderComponent />
+        <CartComponent />
+
+        <ProductsContextProvider>
+          <SearchFilterComponent handleSearch={handleSearch} />
+          <ProductListComponent products={products} />
+          {/* <ProductPageTransition
+            pageData={pageData}
+            onPageTransition={onPageTransition}
+          /> */}
+        </ProductsContextProvider>
+      </CartContextProvider>
     </>
   );
 }
