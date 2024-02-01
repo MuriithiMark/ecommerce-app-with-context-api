@@ -1,8 +1,11 @@
-# React + Vite
+# Ecommerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Ecommerce App is a modified version of the group project.
+Instead of using useState hook to manage data, the context API is utilized
 
-Currently, two official plugins are available:
+## Accomplishments
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This Project allowed me to fully grasp working with the context API, and using the useReducer to manage the cart for the products.
+
+## Preview
+![Preview Image](https://github.com/MuriithiMark/ecommerce-app-with-context-api/tree/%40feature/using-context-api/)

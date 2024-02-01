@@ -1,8 +1,13 @@
 import React from "react";
 import ProductComponent from "../ProductComponent";
 import './ProductList.css'
+import { useContext } from "react";
+import ProductsContext from "../../services/context/ProductsContext";
 
-const ProductListComponent = ({ products }) => {
+const ProductListComponent = () => {
+
+  const [products] = useContext(ProductsContext);
+  
   return (
     <div className="product-list">
      

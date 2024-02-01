@@ -21,6 +21,9 @@ const CartComponent = () => {
             <span>Your Cart</span>
             <button onClick={closeSidebar}>X</button>
         </div>
+        <h2>
+          Cart has { state.products.length } items.
+        </h2>
       {state.products.map((product) => {
         return (
           <div key={product.id} className="cart-item">

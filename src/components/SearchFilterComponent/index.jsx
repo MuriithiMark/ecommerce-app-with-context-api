@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./index.css";
+import { useContext } from "react";
+import ProductsContext from "../../services/context/ProductsContext";
 
-const SearchFilterComponent = ({  handleSearch }) => {
+const SearchFilterComponent = () => {
+  const [products, setProducts] = useContext(ProductsContext);
+
   const [searchText, setSearchText] = useState("");
   const [searchBy, setSearchBy] = useState("name");
 
@@ -13,11 +17,29 @@ const SearchFilterComponent = ({  handleSearch }) => {
     setSearchBy(event.target.value);
   };
 
-  const handleKeyDown = (event) => {
-    if(event.key === "Enter") {
-      handleSearch({ searchText, searchBy });
+  const handleSearch = (event) => {
+    // Search for products according to name or category when `Enter` key is pressed
+    if (event.key !== "Enter") {
+      return;
     }
-  } 
+    if (searchBy === "name") {
+      const filteredProducts = products.filter(
+        (product) =>
+          // null -> false, else -> true
+          !!product.title.toLowerCase().match(searchText.toLowerCase())
+      );
+      setProducts(filteredProducts);
+    }
+
+    if (searchBy === "categories") {
+      const filteredProducts = products.filter(
+        (product) =>
+          // null -> false, else -> true
+          !!product.category.toLowerCase().match(searchText.toLowerCase())
+      );
+      setProducts(filteredProducts);
+    }
+  };
 
   return (
     <div className="search-filter">
@@ -26,7 +48,7 @@ const SearchFilterComponent = ({  handleSearch }) => {
         value={searchText}
         placeholder="Search a product..."
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleSearch}
       />
 
       <select name="" id="" value={searchBy} onChange={handleSelectChange}>
