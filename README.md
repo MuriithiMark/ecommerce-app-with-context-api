@@ -8,4 +8,4 @@ Instead of using useState hook to manage data, the context API is utilized
 This Project allowed me to fully grasp working with the context API, and using the useReducer to manage the cart for the products.
 
 ## Preview
-![Preview Image](https://github.com/MuriithiMark/ecommerce-app-with-context-api/tree/%40feature/using-context-api/)
+![Preview Image](https://github.com/MuriithiMark/ecommerce-app-with-context-api/blob/%40feature/using-context-api/preview.png)
